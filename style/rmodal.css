@@ -21,12 +21,13 @@
 }
 
 .rloader-backdrop {
-  background-color: #000000a1;
+  background-color: #000000ce;
   display: flex;
   height: 100%;
   width: 100%;
   justify-content: center;
   align-items: center;
+  position: absolute;
 }
 
 .rmodal-secondarybutton:active {

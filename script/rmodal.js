@@ -1,24 +1,23 @@
-
-class Rmodal{
-	constructor(titulo, corpo, botaoSalvar, idModal){
+export default class Rmodal {
+	constructor(titulo, corpo, botaoSalvar, idModal) {
 		this.titulo = titulo,
-		this.corpo = corpo,
-		this.botaoSalvar = botaoSalvar,
-		this.idModal = idModal
+			this.corpo = corpo,
+			this.botaoSalvar = botaoSalvar,
+			this.idModal = idModal;
 	}
 
-	 fechar(idModal = this.idModal){
-	document.querySelector(`.rmodal-overlay[id="${idModal}"]`).remove();
+	fechar(idModal = this.idModal) {
+		document.querySelector(`.rmodal-overlay[id="${idModal}"]`).remove();
 	}
-	
-	
-	 abrir(title = this.titulo, bodycontent = this.corpo, havePrimaryButton = this.botaoSalvar){
+
+
+	abrir(title = this.titulo, bodycontent = this.corpo, havePrimaryButton = this.botaoSalvar) {
 		const page = document.querySelector('body');
 		var minimo = 1;
 		var maximo = 1000;
 		var numeroIntervalo = Math.random() * (maximo - minimo) + minimo;
 
-		page.insertAdjacentHTML('beforeend', 
+		page.insertAdjacentHTML('beforeend',
 			`
 			<div class="rmodal-overlay" id="${numeroIntervalo}">
 			<div class="rmodal" id="${numeroIntervalo}">
@@ -42,47 +41,51 @@ class Rmodal{
 			</div>
 		</div>
 			`
-		)
+		);
 
 		const buttonClose = document.querySelector(`.rmodal-closebutton[id="${numeroIntervalo}"]`);
 		const buttonPrimary = document.querySelector(`.rmodal-primarybutton[id="${numeroIntervalo}"]`);
 		const buttonSecondary = document.querySelector(`.rmodal-secondarybutton[id="${numeroIntervalo}"]`);
 
-		if(!havePrimaryButton){
+		if (!havePrimaryButton) {
 			buttonPrimary.remove();
 		}
 
-		buttonClose.addEventListener('click', () => {this.fechar(numeroIntervalo)});
-		buttonSecondary.addEventListener('click', () => {this.fechar(numeroIntervalo)});
+		buttonClose.addEventListener('click', () => { this.fechar(numeroIntervalo); });
+		buttonSecondary.addEventListener('click', () => { this.fechar(numeroIntervalo); });
 	};
 }
-
-class Rloader{
-	constructor(){
-		this.page = document.querySelector('body')
+export class Rloader {
+	constructor() {
+		this.page = document.querySelector('body');
 	}
 
-	mostrar(){
+	mostrar() {
 		const loader = document.querySelector('.rloader-backdrop');
 
-		if(!loader){
+		this.page.style.display = 'flex'
+		this.page.style.flexDirection = 'column'
+
+		if (!loader) {
 			const element = `
 			<div class="rloader-backdrop">
 			<div class="rloader-grouploader">
 				<div class="rloader-loader"></div>
 				<p>Carregando...</p> 
 			</div>
-		</div>`
+		</div>`;
 
-		this.page.insertAdjacentHTML('beforeend', element)
+			this.page.insertAdjacentHTML('beforeend', element);
 		}
 	}
 
-	ocultar(){
+	ocultar() {
 		const loader = document.querySelector('.rloader-backdrop');
-		
-		if(loader){
-			loader.remove()
+
+		if (loader) {
+			this.page.style.display = ''
+			this.page.style.flexDirection = ''
+			loader.remove();
 		}
 	}
 }
