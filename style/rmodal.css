@@ -32,19 +32,18 @@
 
 .rmodal-secondarybutton:active {
     background: #5e5e5ee0;
-    height: 100%;
-    width: 100%;
 }
 
 
 .rmodal-secondarybutton {
-    border-radius: 4px;
+    border-radius: 10px;
     border: none;
     margin: 6px;
     background: #919191;
     color: white;
-    padding: 4px;
+    padding: 11px;
     transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
 }
 
 .rmodal-primarybutton:active {
@@ -52,13 +51,14 @@
 }
 
 .rmodal-primarybutton {
-    border-radius: 4px;
+    border-radius: 10px;
     border: none;
     margin: 6px;
     background: #007bff;
     color: white;
     transition: background-color 0.3s ease, color 0.3s ease;
     padding: 11px;
+    cursor: pointer;
 }
 
 .rmodal-groupbutton {
@@ -94,6 +94,7 @@
     border: none;
     background-color: transparent;
     font-size: 18px;
+    cursor: pointer;
   }
   
   .rmodal-title {

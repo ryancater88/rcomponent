@@ -1,4 +1,4 @@
-export default class Rmodal {
+export class Rmodal {
 	constructor(titulo, corpo, botaoSalvar, idModal) {
 		this.titulo = titulo,
 			this.corpo = corpo,
