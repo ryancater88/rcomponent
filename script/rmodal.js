@@ -3,6 +3,7 @@ export class Rmodal {
 		this.titulo = titulo,
 			this.corpo = corpo,
 			this.botaoSalvar = botaoSalvar,
+			this.botaoFechar = 
 			this.idModal = idModal;
 	}
 
@@ -46,6 +47,7 @@ export class Rmodal {
 		const buttonClose = document.querySelector(`.rmodal-closebutton[id="${numeroIntervalo}"]`);
 		const buttonPrimary = document.querySelector(`.rmodal-primarybutton[id="${numeroIntervalo}"]`);
 		const buttonSecondary = document.querySelector(`.rmodal-secondarybutton[id="${numeroIntervalo}"]`);
+		this.botaoFechar = buttonSecondary
 
 		if (!havePrimaryButton) {
 			buttonPrimary.remove();
